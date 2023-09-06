@@ -1,6 +1,6 @@
 // src/App.js
 
-import { filterOdd, filterEven, generateRandomList } from './functions/filterOddEven';
+import { filterOdd, filterEven, generateRandomList } from './functions/OddEven';
 
 function App() {
   const randomList = generateRandomList(10);
