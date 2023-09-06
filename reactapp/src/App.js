@@ -1,32 +1,24 @@
-// src/App.js
-
-import { filterOdd, filterEven, generateRandomList } from './functions/OddEven';
+import React from 'react';
+import { filterOdd, filterEven, generateRandomList } from './functions/filterOddEven';
 
 function App() {
-  const randomList = generateRandomList(10);
-  const oddList = filterOdd(...randomList);
-  const evenList = filterEven(...randomList);
+  const randomList = generateRandomList(); // Returns an array of 7 random numbers
+  const oddNumbers = filterOdd(...randomList); // Returns an array of odd numbers
+  const evenNumbers = filterEven(...randomList); // Returns an array of even numbers
 
   return (
     <div>
-      <h2>Random List:</h2>
+      <h1>Odd numbers:</h1>
       <ul>
-        {randomList.map((num) => (
-          <li>{num}</li>
+        {oddNumbers.map((number, index) => (
+          <li key={index}>{number}</li>
         ))}
       </ul>
 
-      <h2>Odd List:</h2>
+      <h1>Even numbers:</h1>
       <ul>
-        {oddList.map((num) => (
-          <li>{num}</li>
-        ))}
-      </ul>
-
-      <h2>Even List:</h2>
-      <ul>
-        {evenList.map((num) => (
-          <li>{num}</li>
+        {evenNumbers.map((number, index) => (
+          <li key={index}>{number}</li>
         ))}
       </ul>
     </div>
