@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { filterOdd, filterEven, generateRandomList } from './functions/filterOddEven';
 
 function App() {
+  const randomList = generateRandomList(); // Returns an array of 7 random numbers
+  const oddNumbers = filterOdd(...randomList); // Returns an array of odd numbers
+  const evenNumbers = filterEven(...randomList); // Returns an array of even numbers
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Odd numbers:</h1>
+      <ul>
+        {oddNumbers.map((number, index) => (
+          <li key={index}>{number}</li>
+        ))}
+      </ul>
+
+      <h1>Even numbers:</h1>
+      <ul>
+        {evenNumbers.map((number, index) => (
+          <li key={index}>{number}</li>
+        ))}
+      </ul>
     </div>
   );
 }
